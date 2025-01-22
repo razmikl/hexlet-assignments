@@ -18,11 +18,11 @@ public class Segment {
         return this.endPoint;
     }
 
-    public Segment getMidPoint() {
-        int midPointX = ((this.beginPoint.getX() + this.endPoint.getX()) / 2);
-        int midPointY = ((this.beginPoint.getY() + this.endPoint.getY()) / 2);
-        Segment midPoint = new Segment(midPointX, midPointY);
-        return midPoint;
+    public Point getMidPoint() {
+        int pointX = ((this.beginPoint.getX() + this.endPoint.getX()) / 2);
+        int pointY = ((this.beginPoint.getY() + this.endPoint.getY()) / 2);
+        Point result = new Point(pointX, pointY);
+        return result;
     }
 }
 // END
