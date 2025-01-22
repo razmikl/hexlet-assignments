@@ -19,7 +19,7 @@ public class Segment {
     }
 
     public int getMidPoint() {
-        return (getEndPoint() - getBeginPoint());
+        return (getEndPoint() / getBeginPoint());
     }
 }
 // END
