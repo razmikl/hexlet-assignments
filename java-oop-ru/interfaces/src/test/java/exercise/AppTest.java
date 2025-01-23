@@ -63,9 +63,9 @@ class AppTest {
         String str2 = "";
         String str3 = "Hello, Hexlet!";
 
-        str1.subSequence(1, 3).isEqualTo("cd");
-        str2.subSequence(1, 3).isEqualTo("");
-        str3.toString().isEqualTo("!telxeH ,olleH");
+        assertThat(str1.subSequence(1, 3)).isEqualTo("cd");
+        assertThat(str2.subSequence(1, 3)).isEqualTo("");
+        assertThat(str3.toString()).isEqualTo("!telxeH ,olleH");
     }
     // END
 }
