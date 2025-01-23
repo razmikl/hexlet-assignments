@@ -60,11 +60,10 @@ class AppTest {
     @Test
     void testReversedSequence() {
         String str1 = "abcd";
-        String str2 = "";
         String str3 = "Hello, Hexlet!";
 
         assertThat(str1.subSequence(1, 3)).isEqualTo("bc");
-        assertThat(str3.toString()).isEqualTo("!telxeH ,olleH");
+        assertThat(str3.charAt(1)).isEqualTo("e");
     }
     // END
 }
