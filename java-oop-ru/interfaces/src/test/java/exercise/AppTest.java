@@ -63,7 +63,7 @@ class AppTest {
         String str3 = "Hello, Hexlet!";
 
         assertThat(str1.subSequence(1, 3)).isEqualTo("bc");
-        assertThat(str3.charAt(1)).isEqualTo("e");
+        assertThat(str3.charAt(1)).isEqualTo('e');
     }
     // END
 }
