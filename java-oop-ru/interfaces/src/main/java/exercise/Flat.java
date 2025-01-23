@@ -12,7 +12,7 @@ public class Flat implements Home {
         this.floor = floor;
     }
 
-    public int getArea() {
+    public double getArea() {
         return this.area + this.balconyArea;
     }
 

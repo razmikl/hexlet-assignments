@@ -11,7 +11,7 @@ public class Cottage implements Home {
     }
 
     public int getArea() {
-        return this.area + this.floorCount;
+        return this.area;
     }
 
     public int compareTo(Home another) {
@@ -26,7 +26,7 @@ public class Cottage implements Home {
 
     @Override
     public String toString() {
-        return "2 этажный коттедж площадью " + getArea() + " метров";
+        return this.floorCount + " этажный коттедж площадью " + getArea() + " метров";
     }
 }
 // END
