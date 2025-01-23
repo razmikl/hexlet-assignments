@@ -63,9 +63,9 @@ class AppTest {
         String str2 = "";
         String str3 = "Hello, Hexlet!";
 
-        ReversedSequence.reversedSequence(str1).equalsTo("dcba");
-        ReversedSequence.reversedSequence(str2).equalsTo("");
-        ReversedSequence.reversedSequence(str3).equalsTo("!telxeH ,olleH");
+        str1.ReversedSequence.subSequence(1, 3).equalsTo("cd");
+        str2.ReversedSequence.subSequence(1, 3).equalsTo("");
+        str3.ReversedSequence.toString().equalsTo("!telxeH ,olleH");
     }
     // END
 }
