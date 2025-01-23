@@ -8,6 +8,7 @@ public class ReversedSequence implements CharSequence {
         this.text = text;
     }
 
+
     public String subSequence(int num1, int num2) {
         char[] charArray = this.text.toCharArray();
         String result = "";
