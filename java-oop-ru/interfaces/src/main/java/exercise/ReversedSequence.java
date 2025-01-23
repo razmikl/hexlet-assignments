@@ -18,6 +18,16 @@ public class ReversedSequence implements CharSequence {
         return result;
     }
 
+    public char charAt(int number) {
+        char[] charArray = this.text.toCharArray();
+        return charArray[number];
+    }
+
+    public int length() {
+        char[] charArray = this.text.toCharArray();
+        return charArray.length;
+    }
+
     @Override
     public String toString() {
         char[] chars = this.text.toCharArray();

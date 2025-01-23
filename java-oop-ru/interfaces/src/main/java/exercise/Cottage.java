@@ -10,7 +10,7 @@ public class Cottage implements Home {
         this.floorCount = floorCount;
     }
 
-    public int getArea() {
+    public double getArea() {
         return this.area;
     }
 
