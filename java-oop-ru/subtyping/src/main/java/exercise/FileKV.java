@@ -1,40 +1,39 @@
 package exercise;
 
-// BEGIN
 import java.util.Map;
 
-public class FileKV implements KeyValueStorage {
+class FileKV implements KeyValueStorage {
 
-    private String path;
-    private Map<String, String> storage;
+    private String filepath;
 
-    public FileKV(String path, Map<String, String> storage) {
-        this.path = path;
-        this.storage = storage;
+    FileKV(String filepath, Map<String, String> initial) {
+        this.filepath = filepath;
+        Utils.writeFile(filepath, Utils.serialize(initial));
     }
 
-    public String get(String key, String defaultValue) {
-        if (this.storage.containsKey(key)) {
-            return storage.get(key);
-        } else {
-            return defaultValue;
-        }
-    }
-
-    public void set(String key, String newValue) {
-        this.storage.put(key, newValue);
+    public void set(String key, String value) {
+        String content = Utils.readFile(filepath);
+        Map<String, String> data = Utils.deserialize(content);
+        data.put(key, value);
+        Utils.writeFile(filepath, Utils.serialize(data));
     }
 
     public void unset(String key) {
-        if (this.storage.containsKey(key)) {
-            this.storage.remove(key);
-        }
+        String content = Utils.readFile(filepath);
+        Map<String, String> data = Utils.deserialize(content);
+        data.remove(key);
+        Utils.writeFile(filepath, Utils.serialize(data));
+    }
+
+    public String get(String key, String defaultValue) {
+        String content = Utils.readFile(filepath);
+        Map<String, String> data = Utils.deserialize(content);
+        return data.containsKey(key) ? data.get(key) : defaultValue;
     }
 
     public Map<String, String> toMap() {
-        return this.storage;
+        String content = Utils.readFile(filepath);
+        Map<String, String> data = Utils.deserialize(content);
+        return data;
     }
-
-    
 }
-// END

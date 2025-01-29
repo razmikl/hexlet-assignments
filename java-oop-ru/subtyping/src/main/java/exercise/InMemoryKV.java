@@ -4,33 +4,28 @@ import java.util.Map;
 import java.util.HashMap;
 
 // BEGIN
-public class InMemoryKV implements KeyValueStorage {
-    private Map<String, String> storage = new HashMap<>();
+class InMemoryKV implements KeyValueStorage {
 
-    public InMemoryKV(Map<String, String> storage) {
-        this.storage = storage;
+    private Map<String, String> data = new HashMap<>();
+
+    InMemoryKV(Map<String, String> initial) {
+        data.putAll(initial);
     }
 
-    public String get(String key, String defaultValue) {
-        if (this.storage.containsKey(key)) {
-            return storage.get(key);
-        } else {
-            return defaultValue;
-        }
-    }
-
-    public void set(String key, String newValue) {
-        this.storage.put(key, newValue);
+    public void set(String key, String value) {
+        data.put(key, value);
     }
 
     public void unset(String key) {
-        if (this.storage.containsKey(key)) {
-            this.storage.remove(key);
-        }
+        data.remove(key);
+    }
+
+    public String get(String key, String defaultValue) {
+        return data.getOrDefault(key, defaultValue);
     }
 
     public Map<String, String> toMap() {
-        return this.storage;
+        return new HashMap<>(data);
     }
 }
 // END
