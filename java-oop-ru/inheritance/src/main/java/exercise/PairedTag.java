@@ -27,6 +27,7 @@ public class PairedTag extends Tag {
         for (int i = 0; i < newList.size(); i++) {
             result += newList.get(i) + "=\"" + super.getTagAtributes().get(newList.get(i)) + "\" ";
         }
+        result = result.trim();
         result += ">" + this.tagBody;
         if (this.listOfSingleTags.size() > 0) {
             for (int i = 0; i < this.listOfSingleTags.size(); i++) {
