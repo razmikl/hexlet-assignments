@@ -34,7 +34,7 @@ public class PairedTag extends Tag {
                 result += this.listOfSingleTags.get(i).toString();
             }
         }
-        result += "</div>";
+        result += this.getTagName();
         return result;
     }
 }
