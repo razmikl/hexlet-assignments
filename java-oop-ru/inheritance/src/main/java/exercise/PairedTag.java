@@ -12,7 +12,7 @@ public class PairedTag extends Tag {
 
     public PairedTag(String tagName, Map<String, String> tagAtributes, String tagBody, List<Tag> listOfSingleTags) {
         super(tagName, tagAtributes);
-        this.tagBody = tagName;
+        this.tagBody = tagBody;
         this.listOfSingleTags = listOfSingleTags;
     }
 

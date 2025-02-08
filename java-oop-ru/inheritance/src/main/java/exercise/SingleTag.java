@@ -4,7 +4,6 @@ import java.util.Map;
 
 // BEGIN
 import java.util.ArrayList;
-import java.util.Set;
 
 public class SingleTag extends Tag {
 
@@ -21,7 +20,7 @@ public class SingleTag extends Tag {
         }
         String result = "<" + this.getTagName() + " ";
         for (int i = 0; i < newList.size(); i++) {
-            result += newList.get(i) + "=\"" + super.getTagAtributes().get(newList.get(i)) + " ";
+            result += newList.get(i) + "=\"" + super.getTagAtributes().get(newList.get(i)) + "\" ";
         }
         result = result.trim();
         result += ">";
