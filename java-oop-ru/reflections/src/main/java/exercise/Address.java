@@ -13,6 +13,7 @@ class Address {
 
     // BEGIN
     @NotNull
+    @MinLength(minLength = 5)
     // END
     private String street;
 
