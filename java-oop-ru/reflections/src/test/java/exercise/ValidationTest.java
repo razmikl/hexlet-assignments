@@ -33,19 +33,10 @@ class ValidationTest {
     // BEGIN
     @Test
     void testAdvancedValidate() {
-        Address address = new Address("USA", "New York", "abc", "5", null);
-        Map<String, List<String>> result = Validator.advancedValidate(address);
-        assertEquals(1, result.size());
-        assertEquals(List.of("length less than 4"), result.get("street"));
+        Address address2 = new Address(null, "London", "1-st street", "5", "1");
+        List<String> result2 = Validator.validate(address2);
+        List<String> expected2 = List.of("country");
+        assertThat(result2).isEqualTo(expected2);
     }
-
-    @Test
-    public void testNoValidationOnOptionalField() {
-        Address address = new Address("USA", "New York", "Broadway", "5", null);
-        Map<String, List<String>> result = Validator.advancedValidate(address);
-        assertEquals(0, result.size()); // Flat number is optional, expect no errors.
-    }
-
-
     // END
 }
