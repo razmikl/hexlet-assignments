@@ -15,11 +15,10 @@ public class Circle {
     }
 
     public double getSquare() throws NegativeRadiusException {
-        double result = this.radius * this.radius * Math.PI;
-
-        if (result < 0) {
+        if (this.radius < 0) {
             throw new NegativeRadiusException("Площадь круга меньше 0");
         } else {
+            double result = this.radius * this.radius * Math.PI;
             return result;
         }
     }
