@@ -17,7 +17,7 @@ public class Validator {
             for (var field : declaredFiels) {
                 field.setAccessible(true);
                 String value = (String) field.get(obj);
-                if (field.isAnnotationPresent(NotNull.class) && value != null) {
+                if (field.isAnnotationPresent(NotNull.class) && value == null) {
                     result.add(field.getName());
                 }
             }
