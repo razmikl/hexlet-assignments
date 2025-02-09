@@ -18,7 +18,8 @@ public class Circle {
         double result = this.radius * this.radius * Math.PI;
 
         if (result < 0) {
-            throw new NegativeRadiusException("Площадь круга меньше 0");
+            System.out.println("Площадь круга меньше 0");
+            throw new NegativeRadiusException();
         } else {
             return result;
         }
