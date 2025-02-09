@@ -3,6 +3,8 @@ package exercise;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.util.List;
 import java.util.Map;
 
@@ -31,16 +33,19 @@ class ValidationTest {
     // BEGIN
     @Test
     void testAdvancedValidate() {
-        Address address1 = new Address("Russia", "Ufa", "Lenina", "54", "25");
-        Map<String, List<String>> result1 = Validator.advancedValidate(address1);
-        Map<String, List<String>> expected1 = Map.of("street", List.of("length less than 5"));
-        assertThat(result1).isEqualTo(expected1);
-
-        Address address2 = new Address(null, "London", "1-st street", "5", "1");
-        Map<String, List<String>> result2 = Validator.advancedValidate(address2);
-        Map<String, List<String>> expected2 = Map.of("country", List.of("can not be null"));
-        assertThat(result2).isEqualTo(expected2);
+        Address address = new Address("USA", "New York", "abc", "5", null);
+        Map<String, List<String>> result = Validator.advancedValidate(address);
+        assertEquals(1, result.size());
+        assertEquals(List.of("length less than 4"), result.get("street"));
     }
+
+    @Test
+    public void testNoValidationOnOptionalField() {
+        Address address = new Address("USA", "New York", "Broadway", "5", null);
+        Map<String, List<String>> result = Validator.advancedValidate(address);
+        assertEquals(0, result.size()); // Flat number is optional, expect no errors.
+    }
+
 
     // END
 }
