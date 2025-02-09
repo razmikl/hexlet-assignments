@@ -37,7 +37,7 @@ public class Validator {
             for (var field : declaredFiels) {
                 field.setAccessible(true);
                 String value = (String) field.get(obj);
-                MinLength annotation = aClass.getAnnotation(MinLength.class);
+                MinLength annotation = field.getAnnotation(MinLength.class);
 
                 if (field.isAnnotationPresent(NotNull.class) && value == null) {
                     newStringList.add("can not be null");
