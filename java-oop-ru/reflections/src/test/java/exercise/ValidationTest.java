@@ -33,12 +33,12 @@ class ValidationTest {
     void testAdvancedValidate() {
         Address address1 = new Address("Russia", "Ufa", "Lenina", "54", "25");
         Map<String, List<String>> result1 = Validator.advancedValidate(address1);
-        Map<String, List<String>> expected1 = Map.of("flatNumber", List.of("length less than 5"));
+        Map<String, List<String>> expected1 = Map.of("street", List.of("length less than 5"));
         assertThat(result1).isEqualTo(expected1);
 
         Address address2 = new Address(null, "London", "1-st street", "5", "1");
         Map<String, List<String>> result2 = Validator.advancedValidate(address2);
-        Map<String, List<String>> expected2 = Map.of("street", List.of("can not be null"));
+        Map<String, List<String>> expected2 = Map.of("country", List.of("can not be null"));
         assertThat(result2).isEqualTo(expected2);
     }
 
